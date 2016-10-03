@@ -80,7 +80,7 @@ angular.module 'beebon_dashboard', [
       key: self.key
       id: id
     , ()->
-      self.selectedItem.payload = JSON.stringify JSON.parse(self.selectedItem.payload), null, '\t'
+      self.selectedItem.payload = JSON.stringify self.selectedItem.payload, null, '\t'
       console.log self.selectedItem
   this.getKeys()
 ]

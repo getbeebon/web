@@ -5,6 +5,7 @@ html(lang='ru')
         link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
         link(rel='stylesheet',href='/bower_components/highlightjs/styles/github.css')
         link(rel='stylesheet',href='/bower_components/c3/c3.min.css')
+
         script(src='/bower_components/jquery/dist/jquery.min.js')
         script(src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
         script(src='/bower_components/angular/angular.min.js')
@@ -19,12 +20,11 @@ html(lang='ru')
         script(src="/bower_components/d3/d3.min.js")
         script(src="/bower_components/c3/c3.min.js")
         script(src='/public/app.js')
+
     body(ng-app="beebon_dashboard")
         nav.navbar.navbar-inverse
             a.navbar-brand(href='/') Beebon
-            ul.nav.navbar-nav
-                li
-                    a test
+
         .container
             .row
                 ui-view

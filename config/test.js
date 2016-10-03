@@ -1,6 +1,6 @@
 module.exports = {
     collector: {
-    	port: '3000',
+        port: '3000',
     },
     mysql: {
         host: '127.0.0.1',
@@ -21,6 +21,6 @@ module.exports = {
         }
     },
     web: {
-	port: '3100'
+       port: '3100'
     }
 };
