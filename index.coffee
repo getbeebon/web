@@ -1,7 +1,7 @@
 express = require 'express'
 session = require 'express-session'
 bodyParser = require 'body-parser'
-
+config = require 'config'
 
 
 app = express()

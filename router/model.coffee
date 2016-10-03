@@ -1,10 +1,11 @@
 express = require 'express'
-mysql = require 'mysql'
+mysql = require 'mysql2'
 Q = require 'q'
 moment = require 'moment'
 
-config = require '../config'
+config = require 'config'
 connection = null
+
 handleDisconnect = () ->
   connection = mysql.createConnection(config.mysql)
   connection.connect()
