@@ -1,11 +1,11 @@
 {
   "name": "beebon-web",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "license": "ISC",
   "scripts": {
     "start": "node web",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "gulp"
+    "prepublish": "gulp"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
