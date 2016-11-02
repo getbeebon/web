@@ -73,13 +73,17 @@ router.get '/:key/count', (req, res)->
       res.json
         totalItemCount: totalItemCount
 
-router.get '/:key/chart', (req, res)->
+router.get '/:key/chart/:date', (req, res)->
+  date = moment().format('YYYY-MM-DD')
+  console.log('req.params.date', req.params.date);
+  if req.params.date
+    date = req.params.date
   key = req.params.key
   hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
   promises = hours.map (hour)->
     deferred = Q.defer()
-    beginTime = moment(moment().format('YYYY-MM-DD 00:00:00')).add(hour, 'hours').format('YYYY-MM-DD HH:mm:ss')
-    endTime = moment(moment().format('YYYY-MM-DD 00:00:00')).add(hour + 1, 'hours').format('YYYY-MM-DD HH:mm:ss')
+    beginTime = moment(date + ' 00:00:00').add(hour, 'hours').format('YYYY-MM-DD HH:mm:ss')
+    endTime = moment(date + ' 00:00:00').add(hour + 1, 'hours').format('YYYY-MM-DD HH:mm:ss')
     connection.query "SELECT count(id) FROM #{key} WHERE timestamp BETWEEN '#{beginTime}' AND '#{endTime}'", (err, rows, fields)->
       if err
         console.log err

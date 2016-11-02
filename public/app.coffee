@@ -87,9 +87,20 @@ angular.module 'beebon_dashboard', [
 .controller 'DashboardBeebonController', ['$http', 'Models', ($http, Models)->
   self = this
   this.models = []
+  this.date = moment().toDate()
+  this.options = {
+    initDate: moment().toDate()
+    maxDate: moment().toDate()
+  }
+  this.show = ()->
+    console.log self.models
+    for key of self.models
+      model = self.models[key]
+      renderModelChart model
 
   renderModelChart = (model)->
-    $http.get "/keys/#{model}/chart"
+    date = moment(self.date).format('YYYY-MM-DD')
+    $http.get "/keys/#{model}/chart/#{date}"
     .then (response)->
       console.log 'response.data', response.data
       c3.generate
@@ -98,10 +109,7 @@ angular.module 'beebon_dashboard', [
 
   Models.then (response)->
     self.models = response.data
-    console.log self.models
-    for key of self.models
-      model = self.models[key]
-      renderModelChart model
+    self.show()
   console.log this.models
 ]
 .controller 'DashboardBeebonCreateController', [
