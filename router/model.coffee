@@ -107,7 +107,15 @@ router.get '/:key/chart/:date', (req, res)->
     res.sendStatus 500
 router.get '/:key/create', (req, res)->
   key = req.params.key
-  connection.query ("CREATE TABLE `#{key}` (`id` int(10) NOT NULL AUTO_INCREMENT, `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, `tag` varchar(32) NOT NULL DEFAULT '', `payload` json DEFAULT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8 "), (err, row, fields)->
+  connection.query ("CREATE TABLE `#{key}` (" +
+    "`id` int(10) NOT NULL AUTO_INCREMENT," +
+    " `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
+    " `tag` varchar(32) NOT NULL DEFAULT ''," +
+    " `payload` json DEFAULT NULL, PRIMARY KEY (`id`)" +
+    " `ip` VARCHAR(32) DEFAULT NULL," +
+    " `status` VARCHAR(32) DEFAULT NULL," +
+    " `payload` json DEFAULT NULL, PRIMARY KEY (`id`)" +
+    ") ENGINE=InnoDB DEFAULT CHARSET=utf8 "), (err, row, fields)->
     res.json status: "ok"
 
 router.route '/:key/:id'
