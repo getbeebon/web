@@ -83,6 +83,10 @@ angular.module 'beebon_dashboard', [
       self.selectedItem.payload = JSON.stringify self.selectedItem.payload, null, '\t'
       console.log self.selectedItem
   this.getKeys()
+
+  this.logCurl = 'curl -X POST -H "Content-Type: application/json" -d \'{"data":"testData"}\' "http://beeboncollector/api/log/' + this.key + '"'
+  this.taskCurl = 'curl -X POST -H "Content-Type: application/json" -d \'{"data":"testData"}\' "http://beeboncollector/api/task/' + this.key + '"'
+  this.taskStatusCurl = 'curl -X GET "http://beeboncollector/api/task/' + this.key + '/status/:id"'
 ]
 .controller 'DashboardBeebonController', ['$http', 'Models', ($http, Models)->
   self = this
