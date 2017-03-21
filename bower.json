@@ -9,14 +9,17 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "angular": "^1.5.8",
-    "angular-route": "^1.5.8",
-    "angular-resource": "^1.5.8",
+    "angular": "1.5.8",
+    "angular-route": "1.5.8",
+    "angular-resource": "1.5.8",
     "angular-ui-router": "^0.3.1",
     "highlightjs": "^9.6.0",
     "angular-highlightjs": "^0.6.1",
     "angular-bootstrap": "^2.0.1",
     "c3": "^0.4.11",
     "moment": "^2.15.2"
+  },
+  "resolutions": {
+    "angular": "1.5.8"
   }
 }
